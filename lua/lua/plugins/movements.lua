@@ -1,27 +1,9 @@
 return {
     { "nvim-telescope/telescope-fzf-native.nvim" },
     {
-      "christoomey/vim-tmux-navigator",
-      event = "VeryLazy",
-      cmd = {
-        "TmuxNavigateLeft",
-        "TmuxNavigateDown",
-        "TmuxNavigateUp",
-        "TmuxNavigateRight",
-        "TmuxNavigatePrevious",
-        "TmuxNavigatorProcessList",
-      },
-      keys = {
-        { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-        { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-        { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-        { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
-        { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
-      },
-    },
-    {
         "nvim-telescope/telescope.nvim",
-        event = "VeryLazy", dependencies = { {'nvim-lua/plenary.nvim', "nvim-telescope/telescope-live-grep-args.nvim" }, },
+        event = "VeryLazy",
+        dependencies = { {'nvim-lua/plenary.nvim', "nvim-telescope/telescope-live-grep-args.nvim" }, },
         config = function()
             local telescope = require("telescope")
             local actions = require("telescope.actions")
@@ -70,6 +52,9 @@ return {
         lazy = false,
         config = function()
           require("leap").add_default_mappings()
+
+          vim.api.nvim_set_keymap("n", "n", "nzzzv", { noremap = true })
+          vim.api.nvim_set_keymap("n", "N", "Nzzzv", { noremap = true })
 
           local function center_buffer()
             vim.cmd('normal! zz')

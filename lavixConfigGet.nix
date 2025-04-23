@@ -53,7 +53,6 @@ let
     leap-nvim
     yazi-nvim
     snacks-nvim
-    vim-tmux-navigator
     nvim-web-devicons
     catppuccin-nvim
     nvim-gdb
