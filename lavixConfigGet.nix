@@ -42,9 +42,9 @@ let
     lspkind-nvim
     blink-cmp
     friendly-snippets
-    nvim-lspconfig
     nvim-treesitter-context
     nvim-treesitter-textobjects
+    nvim-lspconfig
     plenary-nvim
     telescope-fzf-native-nvim
     telescope-live-grep-args-nvim
@@ -61,7 +61,6 @@ let
     { name = "mini.trailspace"; path = mini-nvim; }
     { name = "mini.pairs"; path = mini-nvim; }
     { name = "mini.icons"; path = mini-nvim; }
-    codecompanion-nvim
   ];
 
   mkEntryFromDrv = drv:
@@ -90,7 +89,12 @@ let
         { "williamboman/mason-lspconfig.nvim", enabled = false },
         { "williamboman/mason.nvim", enabled = false },
       },
+      performance = {
+        reset_packpath = false,
+        rtp = { reset = false },
+      },
     })
+    require("config.lsp")
     vim.g.catppuccin_flavour = "macchiato"
     vim.cmd.colorscheme "catppuccin"
   '';
