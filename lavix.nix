@@ -7,6 +7,7 @@
 let
   packageName = "lavix";
   lavixConfigPath = callPackage ./lavixConfigGet.nix {};
+  opencode_custom = callPackage ./opencode.nix {};
   runtime_deps = with pkgs; [
     #copying
     wl-clipboard
@@ -27,6 +28,8 @@ let
     #treesitter
     gcc
     tree-sitter
+    yazi
+    opencode_custom
   ];
   in 
     symlinkJoin {
