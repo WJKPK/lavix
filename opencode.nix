@@ -21,16 +21,29 @@
               },
               "models": {
                 "gpt-oss:20b": {
-                  "name": "gpt-oss:20b"
-                },
-                "qwen3-coder:30b": {
-                  "name": "qwen3-coder:30b"
-                },
-                "qwen3:3b": {
-                  "name": "qwen3:3b"
+                  "name": "gpt-oss:20b",
+                  "tools": true,
+                  "tool_call": true
                 },
                 "devstral:24b": {
-                  "name": "devstral:24b"
+                  "name": "devstral:24b",
+                  "tools": true,
+                  "tool_call": true
+                },
+                "cogito:32b": {
+                  "name": "cogito:32b",
+                  "tools": true,
+                  "tool_call": true
+                },
+                "qwen2.5-coder:3b": {
+                  "name": "qwen2.5-coder:3b",
+                  "tools": true,
+                  "tool_call": true
+                },
+                "cogito:3b": {
+                  "name": "cogito:3b",
+                  "tools": true,
+                  "tool_call": true
                 },
               }
             }
