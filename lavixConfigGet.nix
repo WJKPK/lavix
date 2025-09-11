@@ -54,8 +54,9 @@ let
     yazi-nvim
     snacks-nvim
     nvim-web-devicons
-    catppuccin-nvim
     nvim-gdb
+    #themes
+    gruvbox-nvim
     { name = "nvim-treesitter"; path = treesitterWithParser; }
     { name = "mini.statusline"; path = mini-nvim; }
     { name = "mini.trailspace"; path = mini-nvim; }
@@ -95,8 +96,8 @@ let
       },
     })
     require("config.lsp")
-    vim.g.catppuccin_flavour = "macchiato"
-    vim.cmd.colorscheme "catppuccin"
+    vim.o.background = "dark"
+    vim.cmd([[colorscheme gruvbox]])
   '';
 
   initFile = writeTextFile {

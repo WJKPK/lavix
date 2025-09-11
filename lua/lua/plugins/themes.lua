@@ -1,5 +1,11 @@
 return {
-    { "catppuccin/nvim", name = "catppuccin-nvim", lazy = false, priority = 1000 },
+    {
+		"ellisonleao/gruvbox.nvim",
+		priority = 1000,
+		config = function()
+			require("gruvbox").setup({})
+		end,
+	},
     {
       'echasnovski/mini.statusline',
       event = "VeryLazy",
