@@ -31,10 +31,20 @@ return {
                 defaults = {
                     mappings = {
                         i = {
+                            ["<C-r><C-w>"] = false,
+                            ["<C-r><C-a>"] = false,
+                            ["<C-r><C-f>"] = false,
+                            ["<C-r><C-l>"] = false,
                             ["<C-DOWN>"] = actions.cycle_history_next,
                             ["<C-UP>"] = actions.cycle_history_prev,
+                            ["<M-w>"] = actions.insert_original_cword,
+                            ["<M-a>"] = actions.insert_original_cWORD,
+                            ["<M-f>"] = actions.insert_original_cfile,
+                            ["<M-l>"] = actions.insert_original_cline,
+                            ["<M-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
+                            ["<C-q>"] = actions.smart_add_to_qflist + actions.open_qflist,
                         },
-                        n = i,
+                        n = {},
                     },
                     file_ignore_patterns = {
                         "build",
@@ -51,8 +61,8 @@ return {
         "ggandor/leap.nvim",
         lazy = false,
         config = function()
-          require("leap").add_default_mappings()
-
+          vim.keymap.set({'n', 'x', 'o'}, 's', '<Plug>(leap)')
+          vim.keymap.set('n',             'S', '<Plug>(leap-from-window)')
           vim.api.nvim_set_keymap("n", "n", "nzzzv", { noremap = true })
           vim.api.nvim_set_keymap("n", "N", "Nzzzv", { noremap = true })
 
@@ -63,7 +73,7 @@ return {
           vim.api.nvim_create_autocmd('User', {
             pattern = 'LeapLeave',
             callback = function()
-              center_buffer()  -- Center the buffer when leaving the Leap search
+              center_buffer()
             end,
           })
         end,
